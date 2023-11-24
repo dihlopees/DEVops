@@ -4,7 +4,6 @@ pipeline {
         stage('Instalar Dependências') {
             steps {
                 sh '''
-                npm install
                 docker-compose up -d
                 '''
             }
