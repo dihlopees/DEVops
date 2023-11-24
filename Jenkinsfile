@@ -1,14 +1,44 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Instalar Dependências') {
             steps {
                 sh '''
-                docker info
-                java --version
-                docker compose version
+                npm install
+                docker-compose up -d
                 '''
             }
+        }
+        
+        stage('Executar Testes') {
+            steps {
+                sh '''
+                echo 'Executando npm test: '
+                npm test
+                '''
+
+            }, 
+            steps {
+               sh  '''
+               echo 'Executando testes com cypress no comando npm test:ci: '
+               npm run test:ci
+               '''
+            },
+             steps {
+               sh  '''
+               echo 'Executando teste end to end com cypress no comando npm test:e2e: '
+               npm run test:e2e
+               '''
+            },
+        }
+    }
+    
+    post {
+        always {
+            sh '''
+            echo 'Start no projeto NodeGoat, pipeline implementada pela aluna Ingrid Lopes R.A: 22.6980-1'
+            npm start
+            '''
         }
     }
 }
