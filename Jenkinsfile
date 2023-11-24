@@ -4,6 +4,8 @@ pipeline {
         stage('Instalar Dependências') {
             steps {
                 sh '''
+                sudo apt update
+                sudo apt install nodejs npm
                 docker-compose up -d
                 '''
             }
