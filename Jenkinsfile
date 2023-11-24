@@ -15,20 +15,11 @@ pipeline {
                 sh '''
                 echo 'Executando npm test: '
                 npm test
+                echo 'Executando testes com cypress no comando npm test:ci: '
+                npm run test:ci
+                echo 'Executando teste end to end com cypress no comando npm test:e2e: '
+                npm run test:e2e
                 '''
-
-            }
-            steps {
-               sh  '''
-               echo 'Executando testes com cypress no comando npm test:ci: '
-               npm run test:ci
-               '''
-            }
-             steps {
-               sh  '''
-               echo 'Executando teste end to end com cypress no comando npm test:e2e: '
-               npm run test:e2e
-               '''
             }
         }
     }
