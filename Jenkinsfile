@@ -13,11 +13,7 @@ pipeline {
             steps {
                 sh '''
                 echo 'Executando npm test: '
-                npm test
-                echo 'Executando testes com cypress no comando npm test:ci: '
-                npm run test:ci
-                echo 'Executando teste end to end com cypress no comando npm test:e2e: '
-                npm run test:e2e
+                docker-compose exec pipeline npm test
                 '''
             }
         }
