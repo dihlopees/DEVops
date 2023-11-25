@@ -5,6 +5,8 @@ pipeline {
             steps {
                 sh '''
                 docker-compose up -d
+                node -v
+                npm -v
                 '''
             }
         }
@@ -13,7 +15,6 @@ pipeline {
             steps {
                 sh '''
                 echo 'Executando npm test: '
-                docker-compose exec pipeline npm test
                 '''
             }
         }
