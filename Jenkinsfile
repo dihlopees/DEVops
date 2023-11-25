@@ -5,6 +5,8 @@ pipeline {
             steps {
                 sh '''
                 docker-compose up -d
+                nvm uninstall 12.22.9
+                nvm install 14.17.6
                 node -v
                 npm -v
                 '''
