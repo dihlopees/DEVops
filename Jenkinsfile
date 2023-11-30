@@ -12,7 +12,7 @@ pipeline {
         stage('Instalar Dependências'){
             steps {
                 sh '''
-                yarn install
+                npm install
                 '''
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh '''
                 echo 'Executando npm test: '
-                yarn test
+                npm run test
                 '''
             }
         }
