@@ -4,10 +4,9 @@ pipeline {
         stage('Instalar Dependências') {
             steps {
                 sh '''
-                apt-get install npm
+                npm install
+                docker build
                 docker-compose up -d
-                node -v
-                npm -v
                 '''
             }
         }
@@ -16,6 +15,7 @@ pipeline {
             steps {
                 sh '''
                 echo 'Executando npm test: '
+                npm test
                 '''
             }
         }
