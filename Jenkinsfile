@@ -4,8 +4,6 @@ pipeline {
         stage('Instalar Dependências') {
             steps {
                 sh '''
-                npm install
-                docker build
                 docker-compose up -d
                 '''
             }
@@ -25,7 +23,6 @@ pipeline {
         always {
             sh '''
             echo 'Start no projeto NodeGoat, pipeline implementada pela aluna Ingrid Lopes R.A: 22.6980-1'
-            npm start
             '''
         }
     }
