@@ -1,10 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage('Instalar Dependências') {
+        stage('Subindo com docker') {
             steps {
                 sh '''
                 docker-compose up -d
+                '''
+            }
+        }
+
+        stage('Instalar Dependências'){
+            steps {
+                sh '''
                 npm install
                 '''
             }
