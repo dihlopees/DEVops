@@ -9,19 +9,19 @@ pipeline {
             }
         }
 
-        // stage('Instalar Dependências'){
-        //     steps {
-        //         sh '''
-        //         npm install
-        //         '''
-        //     }
-        // }
+        stage('Instalar Dependências'){
+            steps {
+                sh '''
+                yarn install
+                '''
+            }
+        }
         
         stage('Executar Testes') {
             steps {
                 sh '''
                 echo 'Executando npm test: '
-                npm run test
+                yarn test
                 '''
             }
         }
