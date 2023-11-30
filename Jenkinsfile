@@ -12,7 +12,7 @@ pipeline {
         stage('Instalar Dependências'){
             steps {
                 sh '''
-                /home/viptech/Documentos/ingrid/Faculdade/DevOps/NodeGoat/ npm install
+                npm install
                 '''
             }
         }
