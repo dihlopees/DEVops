@@ -23,7 +23,6 @@ pipeline {
                 sh '''
                 echo 'Executando npm test: '
                 npm run test
-                npm run test:ci
                 '''
             }
         }
